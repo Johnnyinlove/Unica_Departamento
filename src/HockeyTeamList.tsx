@@ -1,25 +1,51 @@
-import './App.css'
-import { useState } from 'react'
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import InboxIcon from '@mui/icons-material/Inbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
 
-
-function HockeyTeamItem({ team }:any) {
-    return (
-      <li className="py-4 flex">
-        <img className="h-10 w-10 rounded-full" src={team.logo} alt="" />
-        <div className="ml-3">
-          <p className="text-sm font-medium text-gray-900">{team.name}</p>
-          <p className="text-sm text-gray-500">{team.city}</p>
-        </div>
-      </li>
-    )
-  }
-  
-   function HockeyTeamList({ teams }:any) {
-    return (
-      <ul className="divide-y divide-gray-200">
-        {teams.map((team:any) => <HockeyTeamItem key={team.id} team={team} />)}
-      </ul>
-    )
-  }
-
-  export default HockeyTeamList
+export default function BasicList() {
+  return (
+    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <nav aria-label="main mailbox folders">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Drafts" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </nav>
+      <Divider />
+      <nav aria-label="secondary mailbox folders">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText primary="Trash" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component="a" href="#simple-list">
+              <ListItemText primary="Spam" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </nav>
+    </Box>
+  );
+}

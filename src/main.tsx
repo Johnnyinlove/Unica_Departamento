@@ -7,6 +7,6 @@ import HockeyTeamList from './HockeyTeamList.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-    {/* <HockeyTeamList/> */}
+    <HockeyTeamList/>
   </StrictMode>,
 )
